@@ -62,8 +62,8 @@ public class SuperRepository {
     /**
      * List of courses with more than 2 students (3 and more)
      */
-    public List<Course> getCoursesByStudentName(){
-        return em.createNamedQuery("Course.findCoursesByStudentName").setParameter("name","Jimmy").getResultList();
+    public List<Course> getCoursesByStudentName(String studentName){
+        return em.createNamedQuery("Course.findCoursesByStudentName").setParameter("name",studentName).getResultList();
     }
 
     private Student createStudent(String name){

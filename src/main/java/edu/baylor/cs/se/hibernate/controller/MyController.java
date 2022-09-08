@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -36,7 +37,7 @@ public class MyController {
     }
 
     @RequestMapping(value = "/courses2", method = RequestMethod.GET)
-    public ResponseEntity<Course> getCoursesByStudentName(){
-        return new ResponseEntity(superRepository.getCoursesByStudentName(),HttpStatus.OK);
+    public ResponseEntity<Course> getCoursesByStudentName(@RequestParam String studentName){
+        return new ResponseEntity(superRepository.getCoursesByStudentName(studentName),HttpStatus.OK);
     }
 }
