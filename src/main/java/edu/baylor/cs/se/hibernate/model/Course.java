@@ -33,6 +33,9 @@ public class Course {
     @JsonIdentityReference(alwaysAsId=true)
     private Teacher teacher;
 
+    @ManyToOne
+    private Room room;
+
     @ManyToMany//(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "STUDENT_COURSE",
             joinColumns = { @JoinColumn(name = "COURSE_ID", referencedColumnName = "ID") }, //do not forget referencedColumnName if name is different
@@ -68,8 +71,15 @@ public class Course {
         this.teacher = teacher;
     }
 
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
     public Set<Student> getStudents() {
         return students;
     }
-
 }

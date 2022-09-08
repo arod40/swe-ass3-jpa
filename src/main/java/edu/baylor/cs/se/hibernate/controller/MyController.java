@@ -1,6 +1,7 @@
 package edu.baylor.cs.se.hibernate.controller;
 
 import edu.baylor.cs.se.hibernate.model.Course;
+import edu.baylor.cs.se.hibernate.model.Student;
 import edu.baylor.cs.se.hibernate.services.SuperRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

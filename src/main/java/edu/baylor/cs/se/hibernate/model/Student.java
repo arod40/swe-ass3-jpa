@@ -23,7 +23,7 @@ public class Student implements Serializable{
         return id;
     }
 
-    @ManyToMany(mappedBy = "students"/*, cascade = CascadeType.ALL, fetch = FetchType.LAZY*/)
+    @ManyToMany(mappedBy = "students", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     //annotation bellow is just for Jackson serialization in controller
     @JsonIdentityInfo(
             generator = ObjectIdGenerators.PropertyGenerator.class,

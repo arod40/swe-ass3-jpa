@@ -41,6 +41,9 @@ public class Teacher {
     @JsonIdentityReference(alwaysAsId=true)
     private Set<Course> courses = new HashSet();
 
+    @Pattern(regexp = "^[0-9]{10,}|\\([0-9]{3}\\)\\s[0-9]{3}-[0-9]{4}$", message = "number must be at least 10 digits or in the format (xxx) xxx-xxxx")
+    private String telephoneNumber;
+
     public Long getId() {
         return id;
     }
@@ -67,6 +70,14 @@ public class Teacher {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
 
     public Set getCourses() {
