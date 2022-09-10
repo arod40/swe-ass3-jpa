@@ -24,7 +24,7 @@ public class Student implements Serializable{
         return id;
     }
 
-    @ManyToMany//(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany//(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "STUDENT_COURSE",
             joinColumns = { @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID") }, //do not forget referencedColumnName if name is different
             inverseJoinColumns = { @JoinColumn(name = "COURSE_ID", referencedColumnName = "ID") })
