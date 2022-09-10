@@ -48,7 +48,7 @@ public class SuperRepository {
         em.persist(course2);
 
         //Do you know why this is not working?
-        course.getStudents().add(student2);
+        student2.getCourses().add(course);
 
     }
 
