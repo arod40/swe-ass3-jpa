@@ -24,7 +24,10 @@ public class Student implements Serializable{
         return id;
     }
 
-    @ManyToMany(mappedBy = "students", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToMany//(mappedBy = "students", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinTable(name = "STUDENT_COURSE",
+            joinColumns = { @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID") }, //do not forget referencedColumnName if name is different
+            inverseJoinColumns = { @JoinColumn(name = "COURSE_ID", referencedColumnName = "ID") })
     //annotation bellow is just for Jackson serialization in controller
     @JsonIdentityInfo(
             generator = ObjectIdGenerators.PropertyGenerator.class,
